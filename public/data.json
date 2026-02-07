@@ -1,12 +1,92 @@
 [
   {
-    "id": 151,
-    "name": "ミュウ",
-    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png"
-    },
+    "id": 1,
+    "speciesNum": 3,
+    "stats": {
+      "h": {
+        "value": 31,
+        "trained": true
+      },
+      "a": {
+        "value": 0,
+        "trained": false
+      },
+      "b": {
+        "value": 31,
+        "trained": false
+      },
+      "c": {
+        "value": 31,
+        "trained": false
+      },
+      "d": {
+        "value": 31,
+        "trained": false
+      },
+      "s": {
+        "value": 31,
+        "trained": true
+      }
+    }
+  },
   {
-    "id": 251,
-    "name": "セレビィ",
-    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png"
+    "id": 2,
+    "speciesNum": 151,
+    "stats": {
+      "h": {
+        "value": 31,
+        "trained": false
+      },
+      "a": {
+        "value": 0,
+        "trained": false
+      },
+      "b": {
+        "value": 31,
+        "trained": true
+      },
+      "c": {
+        "value": 31,
+        "trained": false
+      },
+      "d": {
+        "value": 31,
+        "trained": false
+      },
+      "s": {
+        "value": 31,
+        "trained": false
+      }
+    }
+  },
+  {
+    "id": 3,
+    "speciesNum": 251,
+    "stats": {
+      "h": {
+        "value": 31,
+        "trained": false
+      },
+      "a": {
+        "value": 0,
+        "trained": false
+      },
+      "b": {
+        "value": 31,
+        "trained": true
+      },
+      "c": {
+        "value": 31,
+        "trained": false
+      },
+      "d": {
+        "value": 31,
+        "trained": false
+      },
+      "s": {
+        "value": 31,
+        "trained": false
+      }
+    }
   }
 ]

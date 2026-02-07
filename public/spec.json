@@ -1,0 +1,48 @@
+{
+  "3": {
+    "num": 3,
+    "name": "フシギバナ",
+    "types": ["grass", "poison"],
+    "baseStats": {
+      "h": 80,
+      "a": 82,
+      "b": 83,
+      "c": 100,
+      "d": 100,
+      "s": 80,
+      "total": 525
+    },
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+  },
+  "151": {
+    "num": 151,
+    "name": "ミュウ",
+    "types": ["psychic"],
+    "baseStats": {
+      "h": 100,
+      "a": 100,
+      "b": 100,
+      "c": 100,
+      "d": 100,
+      "s": 100,
+      "total": 600
+    },
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png"
+  },
+
+  "251": {
+    "num": 251,
+    "name": "セレビィ",
+    "types": ["psychic", "grass"],
+    "baseStats": {
+      "h": 100,
+      "a": 100,
+      "b": 100,
+      "c": 100,
+      "d": 100,
+      "s": 100,
+      "total": 600
+    },
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/251.png"
+  }
+}
