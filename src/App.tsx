@@ -1,31 +1,39 @@
 import { useEffect, useState } from "react";
-
-type Pokemon = {
-  id: number;
-  name: string;
-  image: string;
-};
-
+import List from "./_components/List";
+import type { DistributedPokemon, Pokemon, PokemonSpecies } from "./types/type";
 
 function App() {
   const [list, setList] = useState<Pokemon[]>([]);
 
   useEffect(() => {
-    fetch("/data.json")
-      .then(res => res.json())
-      .then(setList);
+    Promise.all([
+      fetch("/data.json").then(r => r.json()),
+      fetch("/spec.json").then(r => r.json())
+    ]).then(([distributed, species]: [
+      DistributedPokemon[],
+      Record<string, PokemonSpecies>
+    ]) => {
+      const merged: Pokemon[] = distributed.map(d => {
+        const s = species[d.speciesNum];
+
+        return {
+          id: d.id,
+          name: s.name,
+          image: s.image,
+          types: s.types,
+          baseStats: s.baseStats,
+          ivs: d.stats,
+        };
+      });
+
+      setList(merged);
+    });
   }, []);
 
   return (
     <main>
-      <h1>配布ポケモン一覧</h1>
-      <ul>
-        {list.map(p => (
-          <li key={p.id}>
-            <img src={p.image} alt="" />
-          </li>
-        ))}
-      </ul>
+      {/* このあたりに検索UIを置く */}
+      <List data={list} />
     </main>
   );
 }
