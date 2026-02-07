@@ -1,0 +1,12 @@
+[
+  {
+    "id": 151,
+    "name": "ミュウ",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png"
+    },
+  {
+    "id": 251,
+    "name": "セレビィ",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png"
+  }
+]
