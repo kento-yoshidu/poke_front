@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import List from "./_components/List";
 import type { DistributedPokemon, Pokemon, PokemonSpecies } from "./types/type";
+import "./App.css";
+import styles from "./app.module.css";
+import Footer from "./_components/Footer";
+import Technology from "./_components/Technology";
+import Header from "./_components/Header";
 
 function App() {
   const [list, setList] = useState<Pokemon[]>([]);
@@ -31,10 +36,18 @@ function App() {
   }, []);
 
   return (
-    <main>
-      {/* このあたりに検索UIを置く */}
-      <List data={list} />
-    </main>
+    <div className={styles.wrapper}>
+      <Header />
+
+      <main className={styles.main}>
+        {/* このあたりに検索UIを置く */}
+        <List data={list} />
+
+        <Technology />
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 
