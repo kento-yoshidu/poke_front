@@ -1,0 +1,15 @@
+.footer {
+  padding: 24px;
+  background-color: rgb(17, 24, 39);
+  color: #eeeeee;
+
+  .ps {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    p {
+      font-size: 12px;
+    }
+  }
+}
