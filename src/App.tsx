@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import Header from "./_components/Header";
 import List from "./_components/List";
-import type { DistributedPokemon, Pokemon, PokemonSpecies } from "./types/type";
-import "./App.css";
-import styles from "./app.module.css";
 import Footer from "./_components/Footer";
 import Technology from "./_components/Technology";
-import Header from "./_components/Header";
+import "./App.css";
+import styles from "./app.module.css";
+import type { DistributedPokemon, Pokemon, PokemonSpecies } from "./types/type";
 
 function App() {
   const [list, setList] = useState<Pokemon[]>([]);
@@ -25,6 +25,8 @@ function App() {
           id: d.id,
           name: s.name,
           image: s.image,
+          ability: d.ability,
+          isShiny: d.isShiny,
           types: s.types,
           baseStats: s.baseStats,
           ivs: d.stats,

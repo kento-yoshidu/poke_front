@@ -3,6 +3,10 @@
     "num": 3,
     "name": "フシギバナ",
     "types": ["grass", "poison"],
+    "abilities": {
+      "normal": ["しんりょく"],
+      "hidden": "ようりょくそ"
+    },
     "baseStats": {
       "h": 80,
       "a": 82,

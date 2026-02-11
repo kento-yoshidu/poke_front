@@ -5,6 +5,8 @@
   --sub-color: #ff4c89;
   --body: clamp(0.95rem, 0.95rem + 0.2vw, 1.04rem);
   --backdrop-color: rgba(0, 0, 0, 0.3);
+
+  --inner-width-per: 80%;
 }
 
 ::backdrop {
@@ -30,7 +32,7 @@ html {
 
 body {
   --bg-color: #fff;
-  --text-color: #444;
+  --text-color: #666;
   --link-color: #444;
   --heading-bar-color: #37d;
   --post-link-color: #37d;
