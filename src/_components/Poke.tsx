@@ -1,5 +1,6 @@
 import { TYPE_LABEL } from "../data/typeMap";
 import type { Pokemon } from "../types/type";
+import styles from "./list.module.css";
 
 type StatsMode = "base" | "iv";
 
@@ -8,38 +9,61 @@ type Props = {
   mode: StatsMode;
 };
 
+const iv = (iv: { value: number; trained: boolean }) => (
+  <td className={`${styles.fixTd} ${iv.value === 31 ? styles.v : undefined}`}>
+    {iv.value}
+    {iv.trained && <span>👑</span>}
+  </td>
+);
+
+function abilityLabel(ability: { name: string; isHidden: boolean }) {
+  return ability.isHidden
+    ? `${ability.name} 💤`
+    : ability.name;
+}
+
+function pokemonImage(pokemon: Pokemon) {
+  if (pokemon.isShiny) {
+    return pokemon.image.replace(
+      "/sprites/pokemon/",
+      "/sprites/pokemon/shiny/"
+    );
+  }
+
+  return pokemon.image;
+}
 export default function Poke({ pokemon, mode }: Props) {
   return (
     <tr>
-      <td>{pokemon.id}</td>
+      <td className={styles.no}>{pokemon.id}</td>
       <td>{pokemon.name}</td>
-      <td>
-        <img src={pokemon.image} width={70} height={70} />
+      <td className={styles.image}>
+        <img src={pokemonImage(pokemon)} width={70} height={70} />
       </td>
+      <td>{abilityLabel(pokemon.ability)}</td>
       <td>
         {pokemon.types.map(type => (
-          <span key={type}>{TYPE_LABEL[type]} </span>
+          <p key={type}>{TYPE_LABEL[type]} </p>
         ))}
       </td>
 
       {mode === "base" ? (
         <>
-          <td>{pokemon.baseStats.h}</td>
-          <td>{pokemon.baseStats.a}</td>
-          <td>{pokemon.baseStats.b}</td>
-          <td>{pokemon.baseStats.c}</td>
-          <td>{pokemon.baseStats.d}</td>
-          <td>{pokemon.baseStats.s}</td>
-          <td>{pokemon.baseStats.total}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.h}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.a}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.b}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.c}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.d}</td>
+          <td className={styles.fixTd}>{pokemon.baseStats.s}</td>
         </>
       ) : (
         <>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.h.trained && <span>👑</span> }</td>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.a.trained && <span>👑</span> }</td>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.b.trained && <span>👑</span> }</td>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.c.trained && <span>👑</span> }</td>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.d.trained && <span>👑</span> }</td>
-          <td>{pokemon.ivs.h.value} { pokemon.ivs.s.trained && <span>👑</span> }</td>
+          {iv(pokemon.ivs.h)}
+          {iv(pokemon.ivs.a)}
+          {iv(pokemon.ivs.b)}
+          {iv(pokemon.ivs.c)}
+          {iv(pokemon.ivs.d)}
+          {iv(pokemon.ivs.s)}
         </>
       )}
     </tr>

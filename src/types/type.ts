@@ -6,7 +6,7 @@ export type BaseStats = {
   c: number;
   d: number;
   s: number;
-  total: number;
+  // total: number;
 };
 
 // 個体値
@@ -44,9 +44,16 @@ type Value = {
   trained: boolean;
 };
 
+type Ability = {
+  name: string;
+  isHidden: boolean;
+}
+
 export type DistributedPokemon = {
   id: number;
   speciesNum: number;
+  ability: Ability;
+  isShiny: boolean;
   stats: {
     h: Value;
     a: Value;
@@ -57,6 +64,7 @@ export type DistributedPokemon = {
   };
 };
 
+// メタ情報
 export type PokemonSpecies = {
   num: number;
   name: string;
@@ -69,6 +77,8 @@ export type Pokemon = {
   id: number;
   name: string;
   image: string;
+  ability: Ability;
+  isShiny: boolean;
   types: PokemonType[];
   baseStats: BaseStats;
   ivs: IVStats;

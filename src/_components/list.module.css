@@ -1,11 +1,70 @@
 .table {
-  border: 1px solid #fff;
+  border: 1px solid #ababab;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: 600;
 
-  th, td {
-    border: 1px solid red;
+  thead {
+    tr:first-child th {
+      top: 0;
+    }
 
-    image {
+    tr:nth-child(2) th {
+      top: 34px;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background-color: #dedede;
+      border: 1px solid #ababab;
+      padding: 8px 16px;
+      color: #777;
+      vertical-align: middle;
+    }
+
+    /* 2段ヘッダー用 */
+    .statsHeader {
+      padding: 4px 8px;
+    }
+
+    .statsHeaderInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .modeSwitch button {
+      margin-left: 4px;
+    }
+  }
+
+  tbody {
+    td {
+      border: 1px solid #ababab;
+      padding: 8px 16px;
+      vertical-align: middle;
+      text-align: center;
+
+      &.v {
+        background-color: #f0ffff;
+        color: #4169e1;
+        font-weight: 600;
+      }
+    }
+
+    .fixTd {
       width: 30px;
     }
   }
 }
+
+/* @media (width <= 768px) {
+  .table {
+    width: 95%;
+    overflow-x: scroll;
+    background-color: red;
+    width: 10px
+  }
+} */
