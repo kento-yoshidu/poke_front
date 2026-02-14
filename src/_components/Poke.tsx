@@ -1,5 +1,5 @@
 import { TYPE_LABEL } from "../data/typeMap";
-import type { Pokemon } from "../types/type";
+import { TYPE_COLOR, type Pokemon } from "../types/type";
 import styles from "./list.module.css";
 
 type StatsMode = "base" | "iv";
@@ -34,7 +34,7 @@ function pokemonImage(pokemon: Pokemon) {
 }
 export default function Poke({ pokemon, mode }: Props) {
   return (
-    <tr>
+    <tr className={pokemon.isShiny ? styles.shinyRow : undefined}>
       <td className={styles.no}>{pokemon.id}</td>
       <td>{pokemon.name}</td>
       <td className={styles.image}>
@@ -42,9 +42,17 @@ export default function Poke({ pokemon, mode }: Props) {
       </td>
       <td>{abilityLabel(pokemon.ability)}</td>
       <td>
-        {pokemon.types.map(type => (
-          <p key={type}>{TYPE_LABEL[type]} </p>
-        ))}
+        <div className={styles.typeWrapper}>
+          {pokemon.types.map((type) => (
+            <span
+              key={type}
+              className={styles.typeBadge}
+              style={{ backgroundColor: TYPE_COLOR[type] }}
+            >
+              {TYPE_LABEL[type]}
+            </span>
+          ))}
+        </div>
       </td>
 
       {mode === "base" ? (
